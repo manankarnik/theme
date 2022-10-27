@@ -1,6 +1,6 @@
 mod config;
 
 fn main() {
-    let config: config::Config = config::get_config();
-    dbg!(config);
+    let theme: config::Theme = config::get_theme("Monokai Dark");
+    dbg!(theme);
 }
