@@ -1,6 +1,7 @@
 use clap::Parser;
 
 mod config;
+mod reload;
 mod templates;
 
 #[derive(Parser, Debug)]
@@ -22,6 +23,7 @@ fn main() -> std::io::Result<()> {
         Command::Set { theme } => {
             let theme: config::Theme = config::get_theme(theme);
             templates::terminals::kitty::generate(&theme)?;
+            reload::kitty();
         }
     }
     Ok(())
