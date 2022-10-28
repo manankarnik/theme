@@ -110,4 +110,6 @@ Append the following to kitty.conf
 ```
 include $HOME/.local/share/theme/kitty-colors.conf
 ```
-Auto reload not supported yet, reload kitty after changing theme using `ctrl` + `shift` + `f5`
+
+| :exclamation: Auto reload will only work across all open windows if kitty is run with the [single\_instance](https://sw.kovidgoyal.net/kitty/invocation/#cmdoption-kitty-single-instance) option |
+| -- |
