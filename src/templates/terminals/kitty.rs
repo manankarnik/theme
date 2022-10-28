@@ -95,10 +95,12 @@ pub fn generate(theme: &Theme) -> std::io::Result<()> {
         color15 = theme.color15
     );
 
-    if let Some(proj_dirs) = ProjectDirs::from("", "",  "theme") {
-    let file_path = proj_dirs.data_dir().join("kitty-colors.conf");
-    if let Some(p) = file_path.parent() { fs::create_dir_all(p)? };
-    fs::write(file_path, conf)?;
+    if let Some(proj_dirs) = ProjectDirs::from("", "", "theme") {
+        let file_path = proj_dirs.data_dir().join("kitty-colors.conf");
+        if let Some(p) = file_path.parent() {
+            fs::create_dir_all(p)?
+        };
+        fs::write(file_path, conf)?;
     }
     Ok(())
 }

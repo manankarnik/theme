@@ -16,7 +16,7 @@ enum Command {
     Set { theme: String },
 }
 
-fn main() ->std::io::Result<()> {
+fn main() -> std::io::Result<()> {
     let args: Args = Args::parse();
     match &args.command {
         Command::Set { theme } => {
