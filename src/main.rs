@@ -1,6 +1,7 @@
 use clap::Parser;
 
 mod config;
+mod templates;
 
 #[derive(Parser, Debug)]
 #[command(author, version, about, long_about = None)]
@@ -15,12 +16,13 @@ enum Command {
     Set { theme: String },
 }
 
-fn main() {
+fn main() ->std::io::Result<()> {
     let args: Args = Args::parse();
     match &args.command {
         Command::Set { theme } => {
             let theme: config::Theme = config::get_theme(theme);
-            dbg!(theme);
+            templates::terminals::kitty::generate(&theme)?;
         }
     }
+    Ok(())
 }
